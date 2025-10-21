@@ -132,12 +132,12 @@ fun contactListScreen(navController: NavController){
                                     style = MaterialTheme.typography.titleMedium,
                                     color = MaterialTheme.colorScheme.onSurface
                                 )
-                                Spacer(Modifier.height(4.dp))
-                                Text(
-                                    contact.contactNumber.ifEmpty { "No content yet" }.take(60),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+//                                Spacer(Modifier.height(4.dp))
+//                                Text(
+//                                    contact.contactNumber.ifEmpty { "No content yet" }.take(60),
+//                                    style = MaterialTheme.typography.bodySmall,
+//                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+//                                )
                                 Spacer(Modifier.height(4.dp))
                                 Text(
                                     contact.contactAddress,
