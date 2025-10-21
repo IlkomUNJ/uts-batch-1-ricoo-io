@@ -39,6 +39,7 @@ fun addEditContactScreen(navController: NavController, contactId: Int?) {
     var contactName by remember { mutableStateOf(TextFieldValue(contact.contactName)) }
     var contactNumber by remember { mutableStateOf(TextFieldValue(contact.contactNumber)) }
     var contactAddress by remember { mutableStateOf(TextFieldValue(contact.contactAddress)) }
+    var contactEmail by remember { mutableStateOf(TextFieldValue(contact.contactEmail)) }
     var textStyle by remember { mutableStateOf(TextStyle(fontSize = 16.sp)) }
     var textSize by remember { mutableStateOf(16f) }
 
@@ -135,6 +136,26 @@ fun addEditContactScreen(navController: NavController, contactId: Int?) {
                 TextField(
                     value = contactAddress,
                     onValueChange = { contactAddress = it },
+                    textStyle = textStyle,
+                    modifier = Modifier.fillMaxWidth(),
+                    placeholder = {
+                        Text(
+                            "Enter contact address",
+                            fontSize = textSize.sp,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+                        )
+                    }
+                )
+
+                Text(
+                    text = "Add or Edit Contact Email:",
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+
+                TextField(
+                    value = contactEmail,
+                    onValueChange = { contactEmail = it },
                     textStyle = textStyle,
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = {

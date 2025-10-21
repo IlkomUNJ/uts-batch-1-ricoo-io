@@ -35,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlin.text.ifEmpty
 import kotlin.text.take
+import androidx.compose.foundation.combinedClickable
 
 
 val contacts = mutableStateListOf<Contact>()
@@ -43,7 +44,8 @@ data class Contact(
     val id: Int,
     var contactName: String,
     var contactNumber: String,
-    var contactAddress: String
+    var contactAddress: String,
+    var contactEmail: String
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -68,7 +70,8 @@ fun contactListScreen(navController: NavController){
                         id = ++contactCounter,
                         contactName = "",
                         contactNumber = "",
-                        contactAddress = ""
+                        contactAddress = "",
+                        contactEmail = ""
                     )
                     contacts.add(newContact)
                     navController.navigate("add_editcontact/${newContact.id}")
@@ -111,9 +114,12 @@ fun contactListScreen(navController: NavController){
                         ElevatedCard(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
-                                    navController.navigate("add_editcontact/${contact.id}")
-                                },
+                                .combinedClickable(
+                                    onClick = { },
+                                    onLongClick = {
+                                        navController.navigate("add_editcontact/${contact.id}")
+                                    }
+                                ),
                             shape = RoundedCornerShape(12.dp)
                         ) {
                             Column(
