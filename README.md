@@ -6,5 +6,5 @@ NIM  : 1313623045
 
 Class: B 
 
-Gemini Prompt History: ...............
+Gemini Prompt History: https://gemini.google.com/share/523ba1a347e4
 
